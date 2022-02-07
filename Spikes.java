@@ -20,6 +20,7 @@ public class Spikes extends GamePiece implements Drawable{
 	
 	public InteractionResult interact(Drawable [] gameBoard, int playerLocation) {
 		if (playerLocation == spikeLocation) {
+		System.out.println(spikeLabel);
 		return InteractionResult.KILL;
 		}
 		else return InteractionResult.NONE;

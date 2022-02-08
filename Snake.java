@@ -5,6 +5,10 @@ import gameEngine.Moveable;
 
 public class Snake extends GamePiece implements Drawable, Moveable{
 	private int snakeLocation;
+	public void setSnakeLabel(String snakeLabel) {
+		this.snakeLabel = snakeLabel;
+	}
+
 	private String snakeLabel;
 	public String getSnakeLabel() {
 		return snakeLabel;
@@ -35,12 +39,12 @@ public class Snake extends GamePiece implements Drawable, Moveable{
 	public void move(Drawable[] gameBoard, int playerLocation) {
 		if (snakeLocation <= 9) {
 		gameBoard[snakeLocation] = null;
-		gameBoard[snakeLocation + 1] = new Snake('S', "You got bit by a snake", snakeLocation);
+		gameBoard[snakeLocation + 1] = new Snake('S', getSnakeLabel(), snakeLocation);
 		setSnakeLocation(snakeLocation + 1);
 		}
 		else {
 		gameBoard[snakeLocation] = null;
-		gameBoard[snakeLocation - 1] = new Snake('S', "You got bit by a snake", snakeLocation);
+		gameBoard[snakeLocation - 1] = new Snake('S', getSnakeLabel(), snakeLocation);
 		setSnakeLocation(snakeLocation - 1);
 		}
 	}
